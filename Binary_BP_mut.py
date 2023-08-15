@@ -6,13 +6,9 @@ import numpy as np
 from Mutation import *
 
 
-#ist jetzt aber in discreter zeit gechribene die DNA length
-
-
 def BP(p_branch, generations, p_mut, DNA_length):
     #IDEA: start with one element in 0th generation. Each element branches with p_branch in 2 or zero offspring
     #NOTE: When an element branches, it is also it's own offspring (does not increase size)
-    
     
     N = 1 #one element in 0th generation
     N_dic = {0:1} #initialize N and S (total size) for 0th generation; Store N(g), S(g) here
@@ -47,8 +43,7 @@ def BP(p_branch, generations, p_mut, DNA_length):
         g += 1
     
     N_array = np.array(list(N_dic.values()), dtype=np.double)
-    S_array = np.array(list(S_dic.values()), dtype=np.int)
-    
+    S_array = np.array(list(S_dic.values()), dtype=np.i
     diff_seq_dic = count_diff_seq(sequences_dic)
     Seq_array = np.array(list(diff_seq_dic.values()), dtype=np)
 
