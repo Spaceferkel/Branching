@@ -1,7 +1,6 @@
 import numpy as np
 import heapq as hq
 
-
 def branch_or_not(p_branch):
     #decides whether to branch or not
     branching = False
@@ -9,7 +8,6 @@ def branch_or_not(p_branch):
     if p_random < p_branch:
         branching = True        
     return branching
-
 
 
 def BBP_continous(p_branch, max_time, rate):
@@ -24,7 +22,6 @@ def BBP_continous(p_branch, max_time, rate):
     life_time_ancestor = int(round(gr.exponential(1/rate), 3) * 1000)
     hq.heappush(current_alive, (life_time_ancestor, generation))
     current_birth_time = 0
-    
     
     while current_birth_time <= max_time and len(current_alive) > 0:
         offspring = 0
