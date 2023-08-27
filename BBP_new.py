@@ -1,14 +1,13 @@
 import numpy as np
 from Mutation import *
 
+
 def branch_or_not(p_branch):
     branching = False
     p_random = np.random.rand()
     if p_random < p_branch:
         branching = True
     return branching
-
-
 
 
 def BBP_N(p_branch, max_time, rate=1):
@@ -27,48 +26,10 @@ def BBP_N(p_branch, max_time, rate=1):
         current_time += waiting_time
         N_array.append(N)
         time_array.append(current_time)
-
+        
     return time_array, N_array
 
 
-
-def BBP_S(p_branch, max_time, rate=1):
-    generator = np.random.default_rng()
-    time_array = [0]
-    N = 1
-    S = 1
-    S_array = [1]
-    current_time = 0
-    while current_time <= max_time and N > 0:
-        waiting_time = generator.exponential(1/(N*rate))
-        if branch_or_not(p_branch) == True:
-            N += 1
-            S += 2
-        else:
-            N -= 1
-            
-        current_time += waiting_time
-        time_array.append(current_time)
-        S_array.append(S)
-        
-    return time_array, S_array
-
-
-
-#cell_ID festlegen sepereat festlegen? 
-#bessere datentruktur als dicitonaries? 
-
-#wie viele sequenzen insgesamt mutiert (und ausgestorben)
-#was ist die max-distance der mutierten Sequenzen? 
-#wie ist die verteilung - wie viel nur eine mutation wie viel wie viele andere mutationen?
-#Sequenz finden und schauen, ob die schon mutiert ist 
-#Most recent common ancestor finden 
-
-
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#Habe ich das jetzt drinnen, das auch wirklich die Sequnez vom Vater genommen wird?? 
-#diese Mutationsrate biologisch sinnvoll und wauf was anwendbar?
-#!!!!!!!!!!!!!!!!!!!!!
 
 def BBP_DNA(p_branch, max_time, p_mut, DNA_seq, rate=1):
     #Each different DNA sequence has its own ID
@@ -79,7 +40,7 @@ def BBP_DNA(p_branch, max_time, p_mut, DNA_seq, rate=1):
     time_array = [0]
     N = 1
     ID_seq = {0:DNA_seq} # Contains IDs and sequences of all DNA sequences which have ever existed
-    ID_count_current_alive = {0:1} # Contains IDs and number of those sequences which are currently alive
+    ID_count_current_alive = {0:1} # Contains IDs and count of those sequences which are currently alive
     current_time = 0
     ID_count = 0
     
@@ -130,36 +91,3 @@ def BBP_DNA(p_branch, max_time, p_mut, DNA_seq, rate=1):
         seq_count_array.append(len(ID_count_current_alive))
         
     return time_array, seq_count_array #, N_array
-
-
-
-"""import matplotlib.pyplot as plt
-p_branch = 0.8
-max_time = 20
-p_mut = 0.003
-DNA_seq = generate_DNA_seq(100)
-rate = 1
-
-
-time, seq, N = BBP_DNA(p_branch, max_time, p_mut, DNA_seq, rate)
-import matplotlib.pyplot as plt
-plt.plot(time, np.log(seq))
-plt.plot(time, np.log(N))
-
-print(seq[-1])"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
