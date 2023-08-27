@@ -90,4 +90,4 @@ def BBP_DNA(p_branch, max_time, p_mut, DNA_seq, rate=1):
         time_array.append(current_time)
         seq_count_array.append(len(ID_count_current_alive))
         
-    return time_array, seq_count_array #, N_array
+    return time_array, N_array, seq_count_array
