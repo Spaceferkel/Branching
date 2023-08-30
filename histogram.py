@@ -51,11 +51,14 @@ def BBP_DNA_seq_number_at_t(p_branch, max_time, p_mut, DNA_seq, rate=1):
     return ID_count_current_alive, ID_seq
 
 
+
 def polynomial_function(x, a, b, c):
     return a*x**b+c
 
+
 def linear_function(x, slope, intercept):
     return slope * x + intercept
+
 
 
 def nsims_barplot(p_branch, max_time, nsims, p_mut, DNA_seq, rate=1):
@@ -83,7 +86,6 @@ def nsims_barplot(p_branch, max_time, nsims, p_mut, DNA_seq, rate=1):
     ascending_list = np.array(list(range(1, len(sorted_mean_array))))
 
     
-        
     # Plot 1 (Barplot)
     plt.figure(figsize=(20, 8)) 
     ax = plt.gca() 
@@ -108,7 +110,6 @@ def nsims_barplot(p_branch, max_time, nsims, p_mut, DNA_seq, rate=1):
     plt.plot(ascending_list, y_fit, color='red', alpha=0.5, label=f"Fitted function: f(x)=({round(a, 2)})*x^({round(b, 2)})-{round(abs(c), 2)}")  # Angepasste Funktion
     plt.legend(fontsize='xx-large')    
     plt.show()
-    #plt.savefig("BBP_continous_mean.png", dpi=300, bbox_inches='tight')
     
     
     # Plot 2 (double logarithmic)
@@ -138,16 +139,5 @@ def nsims_barplot(p_branch, max_time, nsims, p_mut, DNA_seq, rate=1):
 
     plt.legend(fontsize='xx-large')    
     plt.show()
-    #plt.savefig("BBP_continous_mean.png", dpi=300, bbox_inches='tight')
     
     return 0
-
-
-p_branch = 0.8
-max_time = 5
-p_mut = 0.04
-DNA_seq = generate_DNA_seq(1000)
-nsims = 100
-rate = 1
-
-nsims_barplot(p_branch, max_time, nsims, p_mut, DNA_seq, rate)
