@@ -1,16 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Aug 28 22:08:13 2023
-
-@author: jakob
-"""
-
 import numpy as np
 
-
-# DNA als quatenary schreiben und nicht als string
-
 generator = np.random.default_rng()
+
 
 def generate_ID(seq):
     ID = 0
