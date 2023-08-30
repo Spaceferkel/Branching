@@ -52,12 +52,7 @@ def BBP_N(p_branch, max_time, time_steps, rate=1):
 
     return time_array, N_array
 
-p_branch = 0.5
-max_time = 5
-time_steps = 6
-rate = 1
-time, N = BBP_N(p_branch, max_time, time_steps, rate)
-#print(time, N)
+
 
 def BBP_S(p_branch, max_time, time_steps, rate=1):
     # IDEA: returns size array and time array for a binary branching process
