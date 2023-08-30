@@ -167,7 +167,6 @@ def nsims_mean_DNA(p_values, max_time, time_steps, nsims, p_mut, DNA_seq, rate):
         
         print(f"{p_branch} done")
         
-    print(mean_N_array[-2], mean_seq_array[-2])
     #Plot
     plt.xlabel('time', fontsize=16)
     plt.ylabel('<N>, <S>', fontsize=16)
