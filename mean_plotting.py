@@ -7,14 +7,6 @@ from DNA_new import *
 from scipy.stats import linregress
 
 
-p_values = [0.1]
-nsims = 1000
-max_time = 20
-rate = 1
-time_steps = 100
-p_mut = 0.003
-DNA_seq = generate_DNA_seq(100)
-
 
 def nsims_mean_N(p_values, max_time, time_steps, nsims, rate):
     # IDEA: simulate the BBP nsims times and plot the mean of the population over time for every branching probability
