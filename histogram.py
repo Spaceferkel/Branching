@@ -131,7 +131,7 @@ def nsims_barplot(p_branch, max_time, nsims, p_mut, DNA_seq, rate=1):
     end_value = 3.5
     selected_ascending_list = np.log(ascending_list)[np.log(ascending_list) <= end_value]
     selected_sorted_mean_array = np.log(sorted_mean_array[1:len(selected_ascending_list)+1])
-    p0 = (0, selected_sorted_mean_array[0])  # Startwerte für slope und intercept
+    p0 = (0, selected_sorted_mean_array[0]) 
     params, covariance = curve_fit(linear_function, selected_ascending_list, selected_sorted_mean_array, p0=p0)
     slope_fit, intercept_fit = params
     linear_fit = linear_function(selected_ascending_list, slope_fit, intercept_fit)
