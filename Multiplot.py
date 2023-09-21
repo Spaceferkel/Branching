@@ -5,7 +5,8 @@ import pandas as pd
 import numpy as np
 
 def plot_nsims_multiplots(nsims, max_time, time_steps, p_values):
-    # Prepare plot
+    
+    # Prepare the plot
     sns.set_style("white")
     plt.figure(figsize=(12, 8))
     plt.subplots_adjust(wspace=0.2, hspace=0.5)
@@ -41,7 +42,7 @@ def plot_nsims_multiplots(nsims, max_time, time_steps, p_values):
         plt.legend().set_visible(False)
         axes.append(ax)
 
-    # Add main and sub titles
+    # Finish the plot
     main_title = "Binary Branching Processes"
     sub_title = f"Number of simulations: {nsims}"    
     plt.suptitle(main_title, fontsize=22, color='black', y=1.05)
@@ -50,10 +51,4 @@ def plot_nsims_multiplots(nsims, max_time, time_steps, p_values):
     plt.show()
     
     return 0
-
-# Call the function with desired parameters
-nsims = 50
-max_time = 20
-p_values = [0.3, 0.5, 0.55, 0.7]
-time_steps = 200
-plot_nsims_multiplots(nsims, max_time, time_steps, p_values)
+    
