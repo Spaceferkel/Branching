@@ -202,7 +202,7 @@ def nsims_mean_DNA(p_values, max_time, time_steps, nsims, p_mut, DNA_seq, rate):
     #plt.ylim(0, 8)
     #plt.xlim(0, 25)
     main_title = "Average number of different DNA sequences over time <Seq>(t)"
-    sub_title = f"{nsims} simulations, p_mut={p_mut}"    
+    sub_title = f"{nsims} simulations, p_mut={p_mut}, DNA length={len(DNA_seq)}"    
     plt.suptitle(main_title, fontsize=22, color='black', y=1.05)
     plt.text(0.5, 0.98, sub_title, fontsize=18, color='#333333', ha='center', va='center', transform=plt.gcf().transFigure)
     plt.legend(fontsize=18)
