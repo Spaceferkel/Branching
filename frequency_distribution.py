@@ -51,6 +51,7 @@ def BBP_DNA_seq_number_at_t(p_branch, max_time, p_mut, DNA_seq, rate=1):
     return ID_count_current_alive, ID_ancestor
 
 
+
 def BBP_DNA_seq_number_size(p_branch, max_time, p_mut, DNA_seq, rate=1):
     # IDEA: returns a dictionary with the ID and count of DNA sequences which have ever existed
     # NOTE: Each different DNA sequence has its own ID (and not every cell)
@@ -90,7 +91,6 @@ def BBP_DNA_seq_number_size(p_branch, max_time, p_mut, DNA_seq, rate=1):
         current_time += waiting_time
         
     return ID_count_current_alive, ID_ancestor
-
 
 
 
@@ -143,67 +143,6 @@ def nsims_distribution(p_branch, max_time, nsims, p_mut, DNA_seq, rate, mode="sn
     
     return 0
 
-
-def exponential_function(x, a, b):
-    return a*np.exp(b*x)
-
-def polynomial_function(x, a, b):
-    return a*x**b
-
-
-def plot_barplot(file_name):
-    # IDEA: Plot the data in a barplot
-    
-    # Get the data from the file
-    file_path = 'Data\\' + file_name + ".txt"
-    data = np.genfromtxt(file_path, delimiter='\t', skip_header=13)
-    ascending_list = data[:, 0]
-    mean_array = data[:, 1]
-    
-    # Get the parameters from the file
-    parameters = {}
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-
-    for line in lines[3:10]:
-        key, value = line.split(":")
-        key = key.strip("# ").strip()
-        value = value.strip()
-        parameters[key] = value
-
-    mode = parameters["Mode"]
-    nsims = int(parameters["Number of simulations"])
-    p_branch = float(parameters["Branching probability"])
-    max_time = int(parameters["At time"])
-    rate = int(parameters["Rate"])
-    DNA_length = int(parameters["DNA length"])
-    p_mut = float(parameters["Mutation probability"])
-    
-    
-    
-    """
-    # Fit exponential
-    init = [0.1, -10]
-    params, covariance = curve_fit(exponential_function, ascending_list, mean_array, p0=init, maxfev=2000)
-    a, b = params
-    y_exp_fit = exponential_function(ascending_list, a, b)
-    total_sum_of_squares = np.sum((mean_array - np.mean(mean_array))**2)
-    residual_sum_of_squares = np.sum((mean_array - y_exp_fit)**2)
-    r_squared = 1 - (residual_sum_of_squares / total_sum_of_squares)
-    plt.plot(ascending_list, y_exp_fit, color='green', alpha=0.5, label=f"Fitted exponential function: f(x)=({round(a, 2)})*exp({round(b, 2)}*x), R^2={round(r_squared,2)}")  # Angepasste Funktion
-
-    # Fit power function 
-    init = [2, -1]
-    params, covariance = curve_fit(polynomial_function, ascending_list, mean_array, p0=init, maxfev=2000)
-    c, d = params
-    y_polynomial_fit = polynomial_function(ascending_list, c, d)
-    residual_sum_of_squares = np.sum((mean_array - y_polynomial_fit)**2)
-    r_squared = 1 - (residual_sum_of_squares / total_sum_of_squares)
-    plt.plot(ascending_list, y_polynomial_fit, color='red', alpha=0.5, label=f"Fitted power function: f(x)=({round(c, 2)})*x^({round(d, 2)}), R^2={round(r_squared,2)}")  # Angepasste Funktion
-    """
-    
-    plt.plot(ascending_list, mean_array, label=f"Mode: {mode}", alpha=0.7) 
-    
     
     
     
