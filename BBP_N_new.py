@@ -1,7 +1,6 @@
 import numpy as np
 
 
-
 # Define the seed of the RNG
 seed = 10
 generator = np.random.default_rng(seed=seed)
