@@ -128,6 +128,7 @@ def nsims_mean_size(p_values, max_time, time_steps, nsims, rate):
     plt.legend(fontsize=18)
     #plt.savefig("BBP_continous_mean.png", dpi=300, bbox_inches='tight')
     plt.show()
+    
     return 0
 
 
@@ -208,4 +209,4 @@ def nsims_mean_DNA(p_values, max_time, time_steps, nsims, p_mut, DNA_seq, rate):
     plt.savefig("33.png", dpi=300, bbox_inches='tight')
     plt.show()
     
-    return time, mean_N_array, mean_seq_array
+    return 0
