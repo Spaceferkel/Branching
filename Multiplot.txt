@@ -1,6 +1,6 @@
 SIMULATIONS OF BINARY BRANCHING PROCESSES 
 
- RNG seed: 9
+RNG seed: 9
 # 
 # 
 # Branching probability: 0.3
