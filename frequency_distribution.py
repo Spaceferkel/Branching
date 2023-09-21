@@ -142,9 +142,3 @@ def nsims_distribution(p_branch, max_time, nsims, p_mut, DNA_seq, rate, mode="sn
     np.savetxt(file_path, raw_data, fmt = ['%d', '%e'], header=header, delimiter="\t")
     
     return 0
-
-    
-    
-    
-    return 0
-
